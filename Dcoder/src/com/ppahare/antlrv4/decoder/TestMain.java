@@ -12,7 +12,9 @@ public class TestMain {
 	
 	 public static void main(String[] args) throws Exception {
 	     if(args.length < 2) {
-	    	 System.out.print("Usage : TestMain <option> <argument>\nOPTIONS : -f <file> \n       : -s <string>");
+	    	 System.out.print("Usage : scdecoder -f <file> \n"
+	    	 				+ "      : scdecoder -s <string1> [string2] ...\n");
+	    	 return ;
 	     }
 	     String argument;
 	     if(args[0].equals("-f")) {

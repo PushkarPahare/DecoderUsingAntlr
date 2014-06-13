@@ -12,7 +12,9 @@ public class TestMain {
 	
 	 public static void main(String[] args) throws Exception {
 	     if(args.length < 2) {
-	    	 System.out.print("Usage : TestMain <option> <argument>\nOPTIONS : -f <file> \n       : -s <string>");
+	    	 System.out.print("Usage : bdecoder -f <file> \n"
+ 	 						+ "      : bdecoder -s <string1> [string2] ...\n");
+	    	 return;
 	     }
 	     String argument;
 	     if(args[0].equals("-f")) {
@@ -24,21 +26,22 @@ public class TestMain {
 	    		 List<String> brands = FileUtils.readLines(file);
 	    		 int i=1;
 	    		 for(String brand : brands) {
+	    			 brand = brand.toLowerCase();
 	    			 try {
-	    				 System.out.println("[" + i + "]PASSED:"+decode(brand.trim()));
+	    				 System.out.println(""+decode(brand.trim()));
 	    			 } catch (Exception e) {
-	    				 System.out.println("[" + i + "]FAILED:"+(brand.trim()));
+	    				 System.out.println(""+(brand.trim()));
 	    			 }
 	    			 i++;
 	    		 }
 	    	 }
 	     } else if(args[0].equals("-s")){
 	    	 for(int i=1; i<args.length; i++) {
-		    	 argument = args[i];
+		    	 argument = args[i].toLowerCase();
 		    	 try {
-		    		 System.out.println("[" + i + "]PASSED:"+decode(argument.trim()));
+		    		 System.out.println(""+decode(argument.trim()));
 		    	 } catch (Exception e) {
-    				 System.out.println("[" + i + "]FAILED:"+(argument.trim()));
+    				 System.out.println(""+(argument.trim()));
     			 }
 	    	 }
 	     }
