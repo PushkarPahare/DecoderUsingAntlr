@@ -1,4 +1,4 @@
-package com.ppahare.antlrv4.decoder;
+package com.ppahare.antlrv4.decoder2;
 
 import java.io.ByteArrayInputStream;
 import java.io.File;
@@ -48,11 +48,11 @@ public class TestMain {
 	 public static String decode(String myString) throws IOException {
 	        InputStream fis = new ByteArrayInputStream(myString.getBytes("ASCII"));
 	        org.antlr.v4.runtime.CharStream input = new org.antlr.v4.runtime.ANTLRInputStream(fis);
-	        TestLexer lexer = new TestLexer( input);              
+	        DecoderLexer lexer = new DecoderLexer( input);              
 	     
 	        //h.put("tr", false);        
 	        
-	        TestParser parser = new TestParser(new org.antlr.v4.runtime.CommonTokenStream(lexer));
+	        DecoderParser parser = new DecoderParser(new org.antlr.v4.runtime.CommonTokenStream(lexer));
 	        String str = parser.prog().value;
 	        return str;
 	 }
